@@ -11,7 +11,7 @@ export default class Home3 extends Component {
     }
 
     commentFun=(e)=>{
-        const list = []
+        let list = []
         list.push({comment:e.target.value, date: new Date().toLocaleString()})
         this.setState({
             comment:list,
@@ -25,8 +25,16 @@ console.log(this.state.date);
   render() {
     return (
       <div>
-        <input onChange={this. commentFun.bind(this)}></input>
-      
+        <input onChange={this.commentFun.bind(this)}></input>
+      {this.state.comment.map((element,idx)=>{
+        return 
+        <>
+        
+        <div key={idx}>{element.comment} </div>
+        <div key={idx}>{element.comment} </div>
+     </>
+       
+      })}
 
       </div>
     )
